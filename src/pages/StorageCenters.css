@@ -1,0 +1,44 @@
+.storage-page { animation: slideUp var(--transition-slow); }
+
+.storage-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.25rem;
+}
+
+.center-icon-mini {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: #E3F2FD;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.util-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.util-pct {
+  font-weight: 700;
+  font-size: var(--text-sm);
+  color: var(--gray-800);
+  min-width: 32px;
+}
+
+.util-label {
+  font-size: 10px;
+  color: var(--gray-400);
+  white-space: nowrap;
+}
+
+.stat-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

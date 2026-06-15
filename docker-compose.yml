@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: seedbank_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: seedbank_cloud
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: seedbank_backend
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - NODE_ENV=production
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/seedbank_cloud
+      - JWT_SECRET=seedbank_secure_jwt_token_secret_key_2026
+      - JWT_EXPIRE=24h
+      - AWS_ACCESS_KEY=your-aws-access-key-id
+      - AWS_SECRET_KEY=your-aws-secret-access-key
+      - AWS_REGION=us-east-1
+      - S3_BUCKET_NAME=seedbank-genetic-resource-cloud-bucket
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
