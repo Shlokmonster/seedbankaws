@@ -8,7 +8,7 @@ const { Pool } = pg;
 // Support SSL connection for production databases like AWS RDS
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
+  ssl: process.env.DB_USE_SSL === 'true' ? { rejectUnauthorized: false } : false
 });
 
 pool.on('connect', () => {
