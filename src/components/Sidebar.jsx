@@ -8,6 +8,7 @@ const navItems = [
   { to: '/storage', icon: '🏛️', label: 'Storage Centers' },
   { to: '/reports', icon: '📊', label: 'Reports' },
   { to: '/monitoring', icon: '📡', label: 'Monitoring' },
+  { to: '/pricing', icon: '💲', label: 'Pricing' },
   { to: '/users', icon: '👥', label: 'Users' },
   { to: '/settings', icon: '⚙️', label: 'Settings' },
 ];
